@@ -1,0 +1,385 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Spuddy - Neo-Retro Pet Simulator Design System
+   Modern polish meets nostalgic charm
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Clean, modern palette with warmth */
+    --background: 260 20% 96%;
+    --foreground: 260 20% 15%;
+
+    --card: 260 30% 98%;
+    --card-foreground: 260 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 20% 15%;
+
+    /* Warm terracotta primary */
+    --primary: 25 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft lavender secondary */
+    --secondary: 260 45% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Soft muted tones */
+    --muted: 260 15% 90%;
+    --muted-foreground: 260 15% 45%;
+
+    /* Playful teal accent */
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Coral for destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 20% 88%;
+    --input: 260 20% 94%;
+    --ring: 25 70% 50%;
+
+    --radius: 16px;
+
+    /* Spuddy colors - warmer, friendlier */
+    --spud-body: 40 65% 65%;
+    --spud-shadow: 30 45% 45%;
+    --spud-eye: 260 25% 20%;
+    --spud-blush: 350 70% 75%;
+    
+    /* Neon accents - softer */
+    --neon-green: 150 70% 50%;
+    --neon-pink: 330 80% 65%;
+    --neon-blue: 200 90% 55%;
+    
+    --crt-glow: 150 70% 50%;
+
+    /* Glass effect colors */
+    --glass-bg: 260 30% 100% / 0.7;
+    --glass-border: 260 30% 85% / 0.5;
+
+    --sidebar-background: 260 20% 96%;
+    --sidebar-foreground: 260 20% 20%;
+    --sidebar-primary: 25 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 175 60% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 20% 88%;
+    --sidebar-ring: 25 70% 50%;
+  }
+
+  .dark {
+    --background: 260 20% 8%;
+    --foreground: 260 15% 95%;
+
+    --card: 260 20% 12%;
+    --card-foreground: 260 15% 95%;
+
+    --popover: 260 20% 10%;
+    --popover-foreground: 260 15% 95%;
+
+    --primary: 25 75% 55%;
+    --primary-foreground: 260 20% 8%;
+
+    --secondary: 260 50% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 260 15% 18%;
+    --muted-foreground: 260 15% 60%;
+
+    --accent: 175 55% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 15% 22%;
+    --input: 260 15% 18%;
+    --ring: 25 75% 55%;
+
+    --spud-body: 40 55% 55%;
+    --spud-shadow: 30 40% 35%;
+    
+    --glass-bg: 260 20% 15% / 0.8;
+    --glass-border: 260 20% 30% / 0.5;
+
+    --sidebar-background: 260 20% 10%;
+    --sidebar-foreground: 260 15% 95%;
+    --sidebar-primary: 25 75% 55%;
+    --sidebar-primary-foreground: 260 20% 8%;
+    --sidebar-accent: 175 55% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 260 15% 22%;
+    --sidebar-ring: 25 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-retro antialiased;
+  }
+}
+
+@layer components {
+  /* CRT Scanline effect - subtle */
+  .crt-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      hsla(260, 20%, 50%, 0.02) 3px,
+      hsla(260, 20%, 50%, 0.02) 6px
+    );
+    z-index: 9999;
+  }
+
+  /* Modern glass panel */
+  .glass-panel {
+    @apply p-5 rounded-2xl;
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 
+      0 4px 24px hsla(260, 30%, 20%, 0.08),
+      0 1px 3px hsla(260, 30%, 20%, 0.04);
+  }
+
+  /* Panel header */
+  .panel-header {
+    @apply flex items-center gap-2 mb-4 pb-3 border-b border-border/50;
+  }
+
+  .panel-title {
+    @apply font-pixel text-xs tracking-wide text-primary;
+  }
+
+  /* Modern pill button */
+  .pill-button {
+    @apply px-4 py-2 rounded-full font-retro text-base transition-all duration-200;
+    @apply bg-muted text-muted-foreground;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    @apply active:scale-95;
+  }
+
+  .pill-button.active {
+    @apply bg-primary text-primary-foreground shadow-md;
+    box-shadow: 0 4px 12px hsla(25, 70%, 50%, 0.3);
+  }
+
+  /* Food item card */
+  .food-card {
+    @apply flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-200;
+    @apply bg-card hover:bg-muted border border-border/50;
+    @apply hover:scale-105 hover:shadow-lg active:scale-95;
+    @apply cursor-pointer select-none;
+  }
+
+  .food-card:disabled {
+    @apply opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none;
+  }
+
+  .food-card.category-office {
+    @apply hover:border-blue-400/50 hover:bg-blue-50/50;
+  }
+
+  .food-card.category-abstract {
+    @apply hover:border-purple-400/50 hover:bg-purple-50/50;
+  }
+
+  .food-card.category-cursed {
+    @apply hover:border-red-400/50 hover:bg-red-50/50;
+  }
+
+  .food-card.category-nostalgic {
+    @apply hover:border-amber-400/50 hover:bg-amber-50/50;
+  }
+
+  /* Dark mode food cards */
+  .dark .food-card.category-office {
+    @apply hover:bg-blue-950/30;
+  }
+
+  .dark .food-card.category-abstract {
+    @apply hover:bg-purple-950/30;
+  }
+
+  .dark .food-card.category-cursed {
+    @apply hover:bg-red-950/30;
+  }
+
+  .dark .food-card.category-nostalgic {
+    @apply hover:bg-amber-950/30;
+  }
+
+  /* Speech bubble - modern */
+  .speech-bubble {
+    @apply relative p-4 rounded-2xl font-retro text-lg;
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    box-shadow: 0 4px 16px hsla(260, 30%, 20%, 0.1);
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 12px solid transparent;
+    border-top-color: hsl(var(--border));
+  }
+
+  .speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: hsl(var(--card));
+    z-index: 1;
+  }
+
+  /* Progress bar modern */
+  .modern-progress {
+    @apply h-3 w-full overflow-hidden rounded-full;
+    background: hsl(var(--muted));
+  }
+
+  .modern-progress-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Stat item */
+  .stat-item {
+    @apply space-y-2;
+  }
+
+  .stat-label {
+    @apply flex justify-between items-center;
+  }
+
+  .stat-name {
+    @apply font-pixel text-[11px] uppercase tracking-wider text-muted-foreground;
+  }
+
+  .stat-value {
+    @apply font-retro text-lg font-bold text-foreground tabular-nums;
+  }
+
+  /* Glitch effect */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  .glitch {
+    animation: glitch 0.3s ease-in-out;
+  }
+
+  /* Screen shake */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+
+  .shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  /* Potato idle animation */
+  @keyframes potato-idle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-4px) rotate(-1deg); }
+    75% { transform: translateY(-2px) rotate(1deg); }
+  }
+
+  .potato-idle {
+    animation: potato-idle 3s ease-in-out infinite;
+  }
+
+  /* Potato blink */
+  @keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+
+  .potato-blink {
+    animation: blink 4s ease-in-out infinite;
+  }
+
+  /* Neon glow */
+  .neon-glow {
+    text-shadow: 
+      0 0 5px hsl(var(--neon-green)),
+      0 0 10px hsl(var(--neon-green)),
+      0 0 20px hsl(var(--neon-green));
+  }
+
+  /* Flash effect */
+  @keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; filter: brightness(1.5); }
+  }
+
+  .flash {
+    animation: flash 0.2s ease-in-out 3;
+  }
+
+  /* Float animation for items */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .float {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Spin for chaos */
+  @keyframes chaos-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.05); }
+    50% { transform: rotate(180deg) scale(1); }
+    75% { transform: rotate(270deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  .chaos-spin {
+    animation: chaos-spin 0.5s ease-in-out;
+  }
+
+  /* Mood badge */
+  .mood-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full;
+    @apply bg-card border border-border/50 shadow-sm;
+    @apply font-pixel text-[11px] uppercase tracking-wider;
+  }
+
+  /* Feed counter */
+  .feed-counter {
+    @apply flex items-center justify-center gap-2 p-3 rounded-xl;
+    @apply bg-card/50 border border-border/30;
+    @apply font-retro text-lg text-muted-foreground;
+  }
+
+  .feed-counter span {
+    @apply font-pixel text-xs text-primary;
+  }
+}
