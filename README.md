@@ -1,74 +1,114 @@
-# Welcome to your Lovable project
+# 🥔 Cursed Pet Simulator  
+## *Spuddy the Sentient Potato*
 
-## Project info
+> A retro digital pet.  
+> A potato with feelings.  
+> A mistake you are now responsible for.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+### ❖ What Is This?
 
-There are several ways of editing your application.
+**Cursed Pet Simulator** is a frontend-only, Tamagotchi-inspired web experience where you care for  
+**Spuddy** — a sentient potato that is far too emotionally aware for what it is.
 
-**Use Lovable**
+You feed it.
+It reacts.
+It judges you.
+Sometimes it becomes enlightened for no reason.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+There are stats, but they don’t matter.  
+There is care, but it might not help.
 
-Changes made via Lovable will be committed automatically to this repo.
+This project exists purely for **absurd joy**, **existential humor**, and **vibe coding**.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### ❖ Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- 🥔 **Spuddy the Potato**
+  - Pixel-art potato with expressive emotions
+  - Idle animations: blinking, twitching, sighing
+  - Maintains unsettling eye contact at all times
 
-Follow these steps:
+- 🍽️ **Cursed Feeding System**
+  Feed Spuddy things it was never meant to consume:
+  - Office & Tech artifacts (WiFi signals, dead USBs)
+  - Abstract concepts (regret, impostor syndrome, hope)
+  - Cursed foods (haunted beans, suspicious cheese)
+  - Nostalgic relics (dial-up sounds, AOL CDs)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- 💬 **Chaotic Emotional Reactions**
+  - Dramatic text responses
+  - Expression and color changes
+  - Screen shake, glitch flashes, and general unease
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- 📊 **Fake Stats That Judge You**
+  - Existential Dread (always high)
+  - Spud Energy (unpredictable)
+  - Enlightenment (random, suspicious)
+  - Suspicion Level (you are not trusted)
 
-# Step 3: Install the necessary dependencies.
-npm i
+- 🖥️ **Optional Screensaver Mode**
+  Spuddy drifts aimlessly. You observe. Nothing improves.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+### ❖ Tech Stack
+
+This project is intentionally **simple and frontend-only**.
+
+- ⚡ Vite
+- ⚛️ React + TypeScript
+- 🎨 Tailwind CSS
+- 🧠 No backend
+- 🌐 Static hosting (GitHub Pages)
+
+All state is local.  
+All consequences are emotional.
+
+---
+
+### ❖ Running Locally
+
+bash
+npm install
 npm run dev
-```
+ 
+#### Or with Bun:
+bun install
+bun run dev
 
-**Edit a file directly in GitHub**
+### Building for Production
+bash
+npm run build
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This generates a static dist/ folder ready for deployment.
 
-**Use GitHub Codespaces**
+### ❖ Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Designed to be hosted on GitHub Pages or any static host.
 
-## What technologies are used for this project?
+**Just remember:**
+- Set the correct base path in vite.config.ts
+- Deploy the dist/ directory
+- Accept responsibility for Spuddy
 
-This project is built with:
+### ❖ Philosophy
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This is not a productivity app.
+This is not a serious game.
+This is not here to optimize your life.
 
-## How can I deploy this project?
+**It exists because:**
+- Not everything needs a purpose
+- Retro web games had soul
+- Potatoes deserve representation
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+If it feels pointless, it’s working.
 
-## Can I connect a custom domain to my Lovable project?
+### ❖ License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-
+MIT
+Do whatever you want.
+Spuddy will still judge you.
